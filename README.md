@@ -26,7 +26,6 @@ Issues with duplicate coexpression definitions and missing keys in **adapter_con
 
 ### Solutions
 - **Remove Redundant Definitions**: Consolidate coexpression entries.
-- **Key Validation**: Ensure all required keys are present using a validation function.
 - **Improved Structure**: Organize configuration for better readability and maintenance.
 - **Modularization**: Split large configuration files into smaller, maintainable modules.
 
@@ -54,8 +53,7 @@ Large files slow cloning operations, especially for contributors with slower int
 ## How to Use
 1. **Install Dependencies**: Ensure libraries like `neo4j`, `pyyaml`, and `git-lfs` are installed.
 2. **Optimize CSV Writer**: Implement chunking and generators in `Neo4jCSVWriter.py`.
-3. **Validate Config**: Use the `validate_config` function to ensure correct configuration.
-4. **Enhance Repository**: Move large files to external storage or use Git LFS.
+3. **Enhance Repository**: Move large files to external storage or use Git LFS.
 
 ---
 
