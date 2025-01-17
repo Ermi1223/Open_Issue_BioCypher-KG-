@@ -1,0 +1,38 @@
+
+### **3. Solving Cloning and Network Challenges Caused by Large File**
+#### Steps:
+1. **Move the File to External Storage**:
+   - Upload the file to a cloud service like AWS S3:
+     ```bash
+     aws s3 cp 1kgeas.B1.glm.firth s3://your-bucket-name/
+     ```
+
+2. **Replace the File in the Repository**:
+   - Delete the file and add a placeholder in the repository:
+     ```bash
+     git rm biocypher-kg/notebooks/1kgeas.B1.glm.firth
+     echo "The file has been moved to: https://your-bucket-name.s3.amazonaws.com/1kgeas.B1.glm.firth" > biocypher-kg/notebooks/README.md
+     git add README.md
+     git commit -m "Moved large file to external storage"
+     ```
+
+3. **Provide Download Instructions**:
+   - Add instructions for users in the README:
+     ```markdown
+     ## Accessing Large Files
+     The file `1kgeas.B1.glm.firth` is stored externally. Download it using:
+     ```bash
+     wget https://your-bucket-name.s3.amazonaws.com/1kgeas.B1.glm.firth
+     ```
+
+4. **Use Git LFS**:
+   - If cloud storage isn’t an option, use Git Large File Storage:
+     ```bash
+     git lfs track "*.glm.firth"
+     git add .gitattributes
+     git add biocypher-kg/notebooks/1kgeas.B1.glm.firth
+     git commit -m "Track large file with Git LFS"
+     ```
+
+---
+These steps will address the issues systematically, optimize the system's performance, and enhance its maintainability.
